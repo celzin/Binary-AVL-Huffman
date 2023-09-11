@@ -30,22 +30,98 @@ estrutura da árvore binária como base. A seguir, é apresentado os passos nece
 
 # 💡 Solução do Problema 
 
+## Funcionamento Geral
+
+<div align="justify">
+	
+- **Carregamento das Palavras-Chave**: A função `load_search_terms` é responsável por carregar as palavras-chave de um arquivo. O nome do arquivo é passado como argumento e a função retorna um vetor de strings contendo as palavras. Ela usa a biblioteca de E/S de arquivos do C++ `(<fstream>)` para ler o arquivo linha por linha e armazenar cada linha (palavra) em um vetor.
+
+- **Processamento do Conjunto de Dados**: A função `process_dataset_files` é a espinha dorsal do programa. Ela é responsável por processar cada arquivo no diretório de conjuntos de dados. Para fazer isso, ela usa a função opendir para abrir o diretório e `readdir` para ler cada arquivo no diretório. Dentro deste loop, para cada arquivo, uma tabela hash e uma heap são inicializadas. A tabela hash provavelmente armazena a frequência de cada palavra e a heap é usada para armazenar as palavras mais frequentes (top-k palavras).
+
+- **Tratando Top-k+1 Palavras**: Dentro da função `process_dataset_files`, há um tratamento especial para garantir que a palavra pesquisada não apareça nas top-k palavras, mesmo que seja uma das palavras mais frequentes. Para fazer isso, a função primeiro obtém as top-k palavras usando `heap.get_top_k()`. Se a palavra pesquisada estiver entre elas, ela é removida e a próxima palavra mais frequente é adicionada, garantindo que ainda haja k palavras no vetor. Esta lógica garante que a palavra pesquisada não seja contabilizada duas vezes.
+
+</div>
+
 ## **Hash e Heap**
 
 <div align="justify">
+	
+As duas estruturas adotadas seguem a mesma implementação do [trabalho anterior](https://github.com/celzin/Top-K-Itens) com algumas pequenas alterações na estrutura da heap para pegar as "top-K+1-palavras". 
 
 </div>
 
 ## **Árvore Binária**
 
 <div align="justify">
-  
+	
+Quando falamos de uma árvore em ciência da computação, estamos nos referindo a uma estrutura de dados hierárquica. Imagine uma árvore genealógica: cada pessoa tem um pai e uma mãe (nós acima) e pode ter vários filhos (nós abaixo). Na árvore binária, cada nó tem, no máximo, dois "filhos": um à esquerda e um à direita.
+
+</div>
+
+### **Estrutura `Node`**
+
+<div align="justify">
+	
+É a representação de cada pessoa nessa árvore genealógica. Cada `Node` tem informações sobre si mesmo (`data`) e sobre seus filhos à esquerda e à direita. Ele nos permite construir a árvore, formando as conexões entre os nós.
+
+</div>
+
+### **Classe `BinaryTree`**
+
+<div align="justify">
+	
+É a representação da árvore como um todo. Segue abaixo suas **funções principais** e seu **funcionamento**.
+
+- **`insert`**:
+
+**Objetivo**: Adicionar um novo `Node` (uma nova pessoa) à nossa árvore.
+
+**Funcionamento:** Ao receber um par de dados (nome e número) para ser inserido, ele começa pelo topo da árvore (a `root`). Se a `root` estiver vazia, o novo nó se torna a raiz. Se não, ele decide, com base no valor do número, se deve ir para a esquerda (valores menores) ou direita (valores maiores). Ele repete essa decisão até encontrar o local correto para inserção.
+
+- **Travessias**:
+
+**Objetivo**: "Caminhar" pela árvore e listar os nós em uma ordem específica.
+
+- **`pre_order`**: Imagine que você está dando um passeio na árvore. Primeiro, você olha para onde está (`root`), em seguida, visita a parte esquerda da árvore e, depois, a parte direita.
+- **`in_order`**: Nesse passeio, primeiro você visita toda a parte esquerda, depois olha para onde está (`root`) e, por último, visita a parte direita.
+- **`post_order`**: Aqui, você começa visitando toda a parte esquerda, depois a direita, e só então olha para o nó em que está.
+
+Essas travessias são como diferentes rotas de passeio pela árvore. Em cada rota, você observa os nós em uma sequência específica. Essa estrutura de árvore binária é como uma árvore genealógica. Cada nó (pessoa) sabe sobre seus "filhos". E temos várias maneiras de passear por essa árvore, vendo os nós em diferentes ordens, graças às travessias. E o método `insert` nos permite adicionar novos membros a essa árvore de forma organizada. O conjunto do código proporciona uma forma visual e estruturada de organizar e acessar dados.
+
 </div>
 
 ## **Árvore AVL**
 
 <div align="justify">
+A peculiaridade de uma árvore AVL é que, para qualquer nó, as alturas das duas subárvores filho diferem em no máximo uma unidade. Se, em algum momento durante uma inserção (ou remoção), a árvore se torna desequilibrada, ela é automaticamente rebalanceada usando rotações.
+</div>
+
+### Detalhes das Funções
+
+<div align="justify">
+	
+**`AVLNode`**:  Representa um nó na árvore AVL. Cada nó contém um par de dados (uma string e um int), uma altura, e ponteiros para seus nós filhos (esquerdo e direito).
+O construtor de `AVLNode` inicializa o nó com os dados fornecidos, configura a altura inicial como 1 e define ambos os filhos como `nullptr`.
+	
+- `AVLTree`: Representa a árvore AVL.
   
+- Construtor de AVLTree: Inicializa a árvore com o nó raiz definido como `nullptr`.
+
+- `get_height`: Retorna a altura de um nó. A altura é usada para determinar o balanceamento da árvore.
+  
+- `get_balance`: Retorna o fator de balanceamento de um nó, que é a diferença entre as alturas de sua subárvore esquerda e direita. Este valor é usado para decidir se um nó está desbalanceado e que tipo de rotação é necessário.
+
+- **`insert`**: É a interface para inserir um valor na árvore. Ela invoca a versão privada de insert no nó raiz da árvore.
+
+- **`pre_order`**: Realiza uma travessia em pré-ordem, que visita o nó atual primeiro, seguido por sua subárvore esquerda e, finalmente, sua subárvore direita.
+
+**rotate_right e rotate_left**:
+
+As rotações são a essência do rebalanceamento na árvore AVL.
+
+- **`rotate_right`** (Rotação à Direita): Usado quando a subárvore esquerda de um nó torna-se mais alta do que a subárvore direita por mais de uma unidade. Basicamente, a subárvore esquerda torna-se a nova raiz da subárvore, e o nó original move-se para a direita.
+- **`rotate_left`** (Rotação à Esquerda): O oposto da rotação à direita. É usado quando a subárvore direita de um nó é significativamente mais alta que a esquerda.
+
 </div>
 
 ## **Codificação de Huffman**
