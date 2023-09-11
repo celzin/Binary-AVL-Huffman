@@ -53,74 +53,55 @@ As duas estruturas adotadas seguem a mesma implementação do [trabalho anterior
 ## **Árvore Binária**
 
 <div align="justify">
-	
-Quando falamos de uma árvore em ciência da computação, estamos nos referindo a uma estrutura de dados hierárquica. Imagine uma árvore genealógica: cada pessoa tem um pai e uma mãe (nós acima) e pode ter vários filhos (nós abaixo). Na árvore binária, cada nó tem, no máximo, dois "filhos": um à esquerda e um à direita.
 
 </div>
 
-### **Estrutura `Node`**
-
-<div align="justify">
-	
-É a representação de cada pessoa nessa árvore genealógica. Cada `Node` tem informações sobre si mesmo (`data`) e sobre seus filhos à esquerda e à direita. Ele nos permite construir a árvore, formando as conexões entre os nós.
-
-</div>
-
-### **Classe `BinaryTree`**
-
-<div align="justify">
-	
-É a representação da árvore como um todo. Segue abaixo suas **funções principais** e seu **funcionamento**.
-
-- **`insert`**:
-
-**Objetivo**: Adicionar um novo `Node` (uma nova pessoa) à nossa árvore.
-
-**Funcionamento:** Ao receber um par de dados (nome e número) para ser inserido, ele começa pelo topo da árvore (a `root`). Se a `root` estiver vazia, o novo nó se torna a raiz. Se não, ele decide, com base no valor do número, se deve ir para a esquerda (valores menores) ou direita (valores maiores). Ele repete essa decisão até encontrar o local correto para inserção.
-
-- **Travessias**:
-
-**Objetivo**: "Caminhar" pela árvore e listar os nós em uma ordem específica.
-
-- **`pre_order`**: Imagine que você está dando um passeio na árvore. Primeiro, você olha para onde está (`root`), em seguida, visita a parte esquerda da árvore e, depois, a parte direita.
-- **`in_order`**: Nesse passeio, primeiro você visita toda a parte esquerda, depois olha para onde está (`root`) e, por último, visita a parte direita.
-- **`post_order`**: Aqui, você começa visitando toda a parte esquerda, depois a direita, e só então olha para o nó em que está.
-
-Essas travessias são como diferentes rotas de passeio pela árvore. Em cada rota, você observa os nós em uma sequência específica. Essa estrutura de árvore binária é como uma árvore genealógica. Cada nó (pessoa) sabe sobre seus "filhos". E temos várias maneiras de passear por essa árvore, vendo os nós em diferentes ordens, graças às travessias. E o método `insert` nos permite adicionar novos membros a essa árvore de forma organizada. O conjunto do código proporciona uma forma visual e estruturada de organizar e acessar dados.
-
-</div>
 
 ## **Árvore AVL**
 
 <div align="justify">
-A peculiaridade de uma árvore AVL é que, para qualquer nó, as alturas das duas subárvores filho diferem em no máximo uma unidade. Se, em algum momento durante uma inserção (ou remoção), a árvore se torna desequilibrada, ela é automaticamente rebalanceada usando rotações.
+	
+A peculiaridade de uma árvore AVL é que, para qualquer nó, as alturas das duas subárvores filho diferem em no máximo uma unidade. Se, em algum momento durante uma inserção (ou remoção), a árvore se torna desequilibrada, ela é automaticamente rebalanceada usando rotações. É uma árvore binária de pesquisa auto-balanceada, o que significa que a cada inserção ou remoção de um nó, ela garante que a altura das subárvores de cada nó diferem em no máximo 1, mantendo assim a árvore aproximadamente balanceada.
+
 </div>
 
-### Detalhes das Funções
+### Classes e Estruturas
+
+- **`AVLNode`**: Representa um nó na árvore AVL.
+	- **`data`**: Um par contendo uma string e um inteiro.
+	- **`height`**: Altura do nó na árvore.
+	- **`left`** e right: Ponteiros para os nós filhos esquerdo e direito, respectivamente.
+
+- **`AVLTree`**: Representa a árvore AVL.
+	- **`root`**: Ponteiro para o nó raiz da árvore.
+
+### Funções e Métodos
 
 <div align="justify">
 	
-**`AVLNode`**:  Representa um nó na árvore AVL. Cada nó contém um par de dados (uma string e um int), uma altura, e ponteiros para seus nós filhos (esquerdo e direito).
-O construtor de `AVLNode` inicializa o nó com os dados fornecidos, configura a altura inicial como 1 e define ambos os filhos como `nullptr`.
+- **`AVLNode()`**: Construtor que inicializa o nó com os dados fornecidos e define a altura inicial como 1.
+
+- **`AVLTree()`**: Construtor que inicializa a árvore AVL com a raiz sendo nullptr.
+
+- **`get_height()`**: Retorna a altura de um nó. Se o nó for nullptr, retorna 0.
+
+- **`get_balance()`**: Retorna o fator de balanceamento de um nó, que é a diferença de altura entre a subárvore esquerda e a subárvore direita.
+
+- **`rotate_right()`** e **rotate_left()**: Estas são funções de rotação que são usadas para manter a árvore balanceada. A rotação é realizada com base no fator de balanceamento de um nó.
+
+- **`insert()`**: Esta é a função de inserção recursiva que primeiro realiza uma inserção padrão de árvore binária de pesquisa (BST). Após a inserção, atualiza a altura do nó atual e obtém seu fator de balanceamento. Dependendo do fator de balanceamento, pode ser necessário realizar rotações para balancear a árvore.
+
+- **`pre_order()`**: Uma função recursiva para realizar a travessia pre-order e preencher o vetor resultante com os dados dos nós em ordem pre-order.
+
+</div>
+
+### Funcionamento
+
+<div align="justify">
 	
-- `AVLTree`: Representa a árvore AVL.
-  
-- Construtor de AVLTree: Inicializa a árvore com o nó raiz definido como `nullptr`.
+O principal recurso deste código é manter a árvore AVL balanceada a cada inserção. Se a árvore ficar desequilibrada após uma inserção (ou seja, o fator de balanceamento de qualquer nó é maior que 1 ou menor que -1), então uma das quatro rotações (right, left, left-right, right-left) é realizada para rebalancear a árvore.
 
-- `get_height`: Retorna a altura de um nó. A altura é usada para determinar o balanceamento da árvore.
-  
-- `get_balance`: Retorna o fator de balanceamento de um nó, que é a diferença entre as alturas de sua subárvore esquerda e direita. Este valor é usado para decidir se um nó está desbalanceado e que tipo de rotação é necessário.
-
-- **`insert`**: É a interface para inserir um valor na árvore. Ela invoca a versão privada de insert no nó raiz da árvore.
-
-- **`pre_order`**: Realiza uma travessia em pré-ordem, que visita o nó atual primeiro, seguido por sua subárvore esquerda e, finalmente, sua subárvore direita.
-
-**rotate_right e rotate_left**:
-
-As rotações são a essência do rebalanceamento na árvore AVL.
-
-- **`rotate_right`** (Rotação à Direita): Usado quando a subárvore esquerda de um nó torna-se mais alta do que a subárvore direita por mais de uma unidade. Basicamente, a subárvore esquerda torna-se a nova raiz da subárvore, e o nó original move-se para a direita.
-- **`rotate_left`** (Rotação à Esquerda): O oposto da rotação à direita. É usado quando a subárvore direita de um nó é significativamente mais alta que a esquerda.
+Resumindo, este código implementa uma árvore AVL com capacidade de inserção e travessia pre-order. O equilíbrio da árvore é mantido através de rotações após cada inserção. O código usa recursividade para inserção e travessias. A complexidade de tempo da inserção em uma árvore AVL é O(log n), onde n é o número de nós.
 
 </div>
 
