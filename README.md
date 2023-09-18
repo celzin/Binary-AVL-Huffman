@@ -89,7 +89,7 @@ As travessias são métodos que percorrem todos os nós da árvore em uma ordem 
 
 **Pré-ordem**: Neste método, visitamos primeiro a raiz, depois a subárvore da esquerda e, finalmente, a subárvore da direita. Ou seja, o nó atual é processado antes de seus descendentes.
 
-**Em ordem** (In-Order): Nesta travessia, visitamos primeiro a subárvore da esquerda, depois a raiz e, finalmente, a subárvore da direita. Para uma árvore binária de busca, isso resulta em processar os valores em ordem crescente.
+**Em ordem (In-Order)**: Nesta travessia, visitamos primeiro a subárvore da esquerda, depois a raiz e, finalmente, a subárvore da direita. Para uma árvore binária de busca, isso resulta em processar os valores em ordem crescente.
 
 **Pós-ordem**: Aqui, visitamos primeiro a subárvore da esquerda, depois a subárvore da direita e, por fim, a raiz. Ou seja, o nó atual é processado após seus descendentes.
 
@@ -101,47 +101,70 @@ Em todos os métodos de travessia, a lógica é implementada recursivamente, ass
 
 <div align="justify">
 	
-A peculiaridade de uma árvore AVL é que, para qualquer nó, as alturas das duas subárvores filho diferem em no máximo uma unidade. Se, em algum momento durante uma inserção (ou remoção), a árvore se torna desequilibrada, ela é automaticamente rebalanceada usando rotações. É uma árvore binária de pesquisa auto-balanceada, o que significa que a cada inserção ou remoção de um nó, ela garante que a altura das subárvores de cada nó diferem em no máximo 1, mantendo assim a árvore aproximadamente balanceada.
+Uma árvore AVL é uma árvore binária de busca auto-balanceada. Em qualquer ponto de inserção ou remoção, a árvore AVL garante que a diferença de alturas entre as subárvores esquerda e direita (chamada de fator de balanceamento) de qualquer nó não exceda 1.
 
 </div>
 
-### Classes e Estruturas
-
-- **`AVLNode`**: Representa um nó na árvore AVL.
-	- **`data`**: Um par contendo uma string e um inteiro.
-	- **`height`**: Altura do nó na árvore.
-	- **`left`** e right: Ponteiros para os nós filhos esquerdo e direito, respectivamente.
-
-- **`AVLTree`**: Representa a árvore AVL.
-	- **`root`**: Ponteiro para o nó raiz da árvore.
-
-### Funções e Métodos
+### AVLNode:
 
 <div align="justify">
 	
-- **`AVLNode()`**: Construtor que inicializa o nó com os dados fornecidos e define a altura inicial como 1.
-
-- **`AVLTree()`**: Construtor que inicializa a árvore AVL com a raiz sendo nullptr.
-
-- **`get_height()`**: Retorna a altura de um nó. Se o nó for nullptr, retorna 0.
-
-- **`get_balance()`**: Retorna o fator de balanceamento de um nó, que é a diferença de altura entre a subárvore esquerda e a subárvore direita.
-
-- **`rotate_right()`** e **rotate_left()**: Estas são funções de rotação que são usadas para manter a árvore balanceada. A rotação é realizada com base no fator de balanceamento de um nó.
-
-- **`insert()`**: Esta é a função de inserção recursiva que primeiro realiza uma inserção padrão de árvore binária de pesquisa (BST). Após a inserção, atualiza a altura do nó atual e obtém seu fator de balanceamento. Dependendo do fator de balanceamento, pode ser necessário realizar rotações para balancear a árvore.
-
-- **`pre_order()`**: Uma função recursiva para realizar a travessia pre-order e preencher o vetor resultante com os dados dos nós em ordem pre-order.
+Quando a árvore AVL é inicialmente criada, ela não possui raiz (`root` é `nullptr`).
 
 </div>
 
-### Funcionamento
+### Altura:
 
 <div align="justify">
 	
-O principal recurso deste código é manter a árvore AVL balanceada a cada inserção. Se a árvore ficar desequilibrada após uma inserção (ou seja, o fator de balanceamento de qualquer nó é maior que 1 ou menor que -1), então uma das quatro rotações (right, left, left-right, right-left) é realizada para rebalancear a árvore.
+A função `get_height` retorna a altura de um determinado nó. Se o nó for nulo, retorna 0.
 
-Resumindo, este código implementa uma árvore AVL com capacidade de inserção e travessia pre-order. O equilíbrio da árvore é mantido através de rotações após cada inserção. O código usa recursividade para inserção e travessias. A complexidade de tempo da inserção em uma árvore AVL é O(log n), onde n é o número de nós.
+</div>
+
+### Balanceamento:
+
+<div align="justify">
+	
+A função `get_balance` retorna o fator de balanceamento de um nó, que é a diferença de altura entre a subárvore esquerda e a subárvore direita.
+
+**Política de Balanceamento**:
+1. Prioridade ao `int`: O valor inteiro (data.second) tem a prioridade primária na determinação da posição do nó. Se o valor inteiro do novo nó é menor que o do nó atual, ele vai para a esquerda; se é maior, vai para a direita.
+2. Desempate com `string`: Se os valores inteiros são iguais (data.second é o mesmo para ambos os nós), a decisão é tomada com base na string (data.first). Se a string do novo nó é lexicograficamente menor que a do nó atual, ele vai para a esquerda; se é maior, vai para a direita.
+
+</div>
+
+### Rotações:
+
+<div align="justify">
+
+Existem quatro cenários possíveis que requerem rotações para manter a árvore balanceada:
+
+1. **Rotação à direita** (`rotate_right`): É realizada quando uma subárvore se torna pesada à esquerda (left-heavy). O nó pesado à esquerda (`y`) é deslocado para baixo e para a direita, enquanto o filho esquerdo desse nó (`x`) é deslocado para cima e se torna a nova raiz da subárvore rotacionada.
+2. **Rotação à esquerda** (`rotate_left`):: É realizada quando uma subárvore se torna pesada à direita (right-heavy). O nó pesado à direita (`x`) é deslocado para baixo e para a esquerda, enquanto o filho direito desse nó (`y`) se desloca para cima e se torna a nova raiz da subárvore rotacionada.
+3. **Rotação à esquerda e depois à direita** (`rotate_left` **+** `rotate_right`): É aplicada quando a subárvore esquerda se torna right-heavy. Primeiro, a subárvore esquerda é rotacionada à esquerda para transformar o problema em um cenário left-heavy. Em seguida, é aplicada uma rotação à direita na raiz.
+4. **Rotação à direita e depois à esquerda** (`rotate_right` **+** `rotate_left`): É aplicada quando a subárvore direita se torna left-heavy. Primeiro, a subárvore direita é rotacionada à direita para transformar o problema em um cenário right-heavy. Depois, é aplicada uma rotação à esquerda na raiz.
+
+Essas rotações garantem que a árvore permaneça balanceada após cada operação de inserção, mantendo assim a eficiência das operações.
+
+</div>
+
+### Inserção:
+
+O processo de inserção na AVL começa como uma inserção padrão de árvore binária de busca (BST). Após a inserção, a árvore pode se tornar desbalanceada. Assim, o código verifica o fator de balanceamento para decidir que tipo de rotação é necessário.
+
+Após a inserção padrão BST, a altura do nó é atualizada. O fator de balanceamento é então calculado e, com base nele, a árvore é balanceada usando uma das rotações mencionadas acima.
+
+<div align="justify">
+
+</div>
+
+### Travessia Pré-ordem:
+
+<div align="justify">
+	
+Assim como na árvore binária tradicional, a travessia pré-ordem visita a raiz, depois a subárvore esquerda e, por fim, a subárvore direita. Ela retorna os nós em um vetor na ordem em que foram visitados.
+
+Em resumo, a AVLTree é uma estrutura de dados que garante que a árvore permaneça balanceada após cada operação de inserção ou remoção. Isso é importante porque garante que as operações na árvore (como inserção, exclusão e busca) ocorram em tempo logarítmico, tornando-a eficiente.
 
 </div>
 
