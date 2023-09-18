@@ -10,21 +10,21 @@
 Neste trabalho, o objetivo é criar um sistema que possibilite a funcionalidade de autocompletar e oferecer sugestões de palavras aos usuários de maneira rudimentar. Para atingir essa finalidade, adotaremos a
 estrutura da árvore binária como base. A seguir, é apresentado os passos necessários para a implementação.
 
-1. Iniciamos solicitando ao usuário um arquivo denominado "input.data" (inserido na pasta "dataset"), contendo uma lista de 'palavras de pesquisa'. Cada palavra nesse arquivo será considerada como termo de pesquisa para o sistema. As palavras serão separadas por linhas, sendo uma 'palavras de pesquisa' por linha.
+- Iniciamos solicitando ao usuário um arquivo denominado "input.data" (inserido na pasta "dataset"), contendo uma lista de 'palavras de pesquisa'. Cada palavra nesse arquivo será considerada como termo de pesquisa para o sistema. As palavras serão separadas por linhas, sendo uma 'palavras de pesquisa' por linha.
 
-2. Utilize a implementação anterior (Heap e Hash) para encontrar a frequência de cada 'palavra de pesquisa' dentre a coleção de textos dentro da pasta "dataset". Mais a frente, o programa deverá mostrar a palavra, sua frequência e o texto que se encontra.
+- Utilize a implementação anterior (Heap e Hash) para encontrar a frequência de cada 'palavra de pesquisa' dentre a coleção de textos dentro da pasta "dataset". Mais a frente, o programa deverá mostrar a palavra, sua frequência e o texto que se encontra.
 
-3. Crie um conjunto de árvores binárias a partir do textos previamente fornecidos na pasta "dataset". O objetivo é estabelecer uma relação entre as palavras do texto e as 'palavras de pesquisa'. Essa abordagem consistirá em três etapas diferentes:
+- Crie um conjunto de árvores binárias a partir do textos previamente fornecidos na pasta "dataset". O objetivo é estabelecer uma relação entre as palavras do texto e as 'palavras de pesquisa'. Essa abordagem consistirá em três etapas diferentes:
 
-	3.1 Árvore Binária Padrão: Implemente uma árvore binária tradicional, selecionando as palavras mais relevantes (top K palavras) e relacionadas à pesquisa feita pela "Heap e Hash" em cada texto. A relevância de uma palavra será determinada por sua frequência e (proximidade à) 'palavra de pesquisa'.
+	- Árvore Binária Padrão: Implemente uma árvore binária tradicional, selecionando as palavras mais relevantes (top K palavras) e relacionadas à pesquisa feita pela "Heap e Hash" em cada texto. A relevância de uma palavra será determinada por sua frequência e (proximidade à) 'palavra de pesquisa'.
 	
-	3.2 Árvore AVL: Implemente uma árvore AVL e repita o processo de análise exemplificado com as devidas adaptações da estrutura.
+ 	- Árvore AVL: Implemente uma árvore AVL e repita o processo de análise exemplificado com as devidas adaptações da estrutura.
 	
-	3.3 Codificação de Huffman: Implemente uma estutura de código de Huffman para otimizar a ideia de árvore binária padrão. Calcule códigos para cada palavra e reorganize a estrutura da árvore com base nesses códigos. 
+	- Codificação de Huffman: Implemente uma estutura de código de Huffman para otimizar a ideia de árvore binária padrão. Calcule códigos para cada palavra e reorganize a estrutura da árvore com base nesses códigos. 
 
-4. Ao final deve ser gerado um arquivo "output.txt" (dentro da pasta "dataset") contendo a pré-ordem de cada umas das 3 estruturas geradas, a 'palavra de pesquisa' juntamente com sua frequência e o texto em que aparece.
+- Ao final deve ser gerado um arquivo "output.txt" (dentro da pasta "dataset") contendo a pré-ordem de cada umas das 3 estruturas geradas, a 'palavra de pesquisa' juntamente com sua frequência e o texto em que aparece.
 
-5. Compare o (tempo médio de processamento) entre a construção da estrutura e a geração de saída (Huffman) em comparação com as abordagens binária e AVL.
+- Compare o (tempo médio de processamento) entre a construção da estrutura e a geração de saída (Huffman) em comparação com as abordagens binária e AVL.
 
 </div>
 
@@ -73,7 +73,9 @@ Ao construir um objeto da classe `BinaryTree`, a raiz da árvore é inicialmente
 <div align="justify">
 	
 O método de inserção permite adicionar um novo par `(string, int)` à árvore. A lógica de inserção verifica o valor `int` do par para determinar se o novo nó deve ser posicionado à esquerda ou à direita do nó atual:
-	
+
+**Política de Inserção**:
+
 - Se o valor `int` do novo par for menor (ou igual e a `string` for alfabeticamente menor), ele é posicionado à esquerda.
 - Se o valor `int` do novo par for maior, ele é posicionado à direita.
 
@@ -87,11 +89,11 @@ A inserção é uma operação recursiva, o que significa que o método chama a 
 
 As travessias são métodos que percorrem todos os nós da árvore em uma ordem específica. Existem três métodos de travessia apresentados:
 
-**Pré-ordem**: Neste método, visitamos primeiro a raiz, depois a subárvore da esquerda e, finalmente, a subárvore da direita. Ou seja, o nó atual é processado antes de seus descendentes.
+**Pré-ordem**(`pre_order`): Neste método, visitamos primeiro a raiz, depois a subárvore da esquerda e, finalmente, a subárvore da direita. Ou seja, o nó atual é processado antes de seus descendentes.
 
-**Em ordem (In-Order)**: Nesta travessia, visitamos primeiro a subárvore da esquerda, depois a raiz e, finalmente, a subárvore da direita. Para uma árvore binária de busca, isso resulta em processar os valores em ordem crescente.
+**Em ordem**(`in_order`): Nesta travessia, visitamos primeiro a subárvore da esquerda, depois a raiz e, finalmente, a subárvore da direita. Para uma árvore binária de busca, isso resulta em processar os valores em ordem crescente.
 
-**Pós-ordem**: Aqui, visitamos primeiro a subárvore da esquerda, depois a subárvore da direita e, por fim, a raiz. Ou seja, o nó atual é processado após seus descendentes.
+**Pós-ordem**(`post_order`): Aqui, visitamos primeiro a subárvore da esquerda, depois a subárvore da direita e, por fim, a raiz. Ou seja, o nó atual é processado após seus descendentes.
 
 Em todos os métodos de travessia, a lógica é implementada recursivamente, assim como a inserção. Para cada método de travessia, há duas funções: uma que serve como ponto de entrada (e retorna os valores em um `vector`) e uma função auxiliar recursiva que faz o trabalho real de travessia.
 
@@ -105,7 +107,7 @@ Uma árvore AVL é uma árvore binária de busca auto-balanceada. Em qualquer po
 
 </div>
 
-### AVLNode:
+### Estrutura do Nó AVL (`AVLNode`):
 
 <div align="justify">
 	
@@ -128,6 +130,7 @@ A função `get_height` retorna a altura de um determinado nó. Se o nó for nul
 A função `get_balance` retorna o fator de balanceamento de um nó, que é a diferença de altura entre a subárvore esquerda e a subárvore direita.
 
 **Política de Balanceamento**:
+
 1. Prioridade ao `int`: O valor inteiro (data.second) tem a prioridade primária na determinação da posição do nó. Se o valor inteiro do novo nó é menor que o do nó atual, ele vai para a esquerda; se é maior, vai para a direita.
 2. Desempate com `string`: Se os valores inteiros são iguais (data.second é o mesmo para ambos os nós), a decisão é tomada com base na string (data.first). Se a string do novo nó é lexicograficamente menor que a do nó atual, ele vai para a esquerda; se é maior, vai para a direita.
 
@@ -140,8 +143,11 @@ A função `get_balance` retorna o fator de balanceamento de um nó, que é a di
 Existem quatro cenários possíveis que requerem rotações para manter a árvore balanceada:
 
 1. **Rotação à direita** (`rotate_right`): É realizada quando uma subárvore se torna pesada à esquerda (left-heavy). O nó pesado à esquerda (`y`) é deslocado para baixo e para a direita, enquanto o filho esquerdo desse nó (`x`) é deslocado para cima e se torna a nova raiz da subárvore rotacionada.
+   
 2. **Rotação à esquerda** (`rotate_left`):: É realizada quando uma subárvore se torna pesada à direita (right-heavy). O nó pesado à direita (`x`) é deslocado para baixo e para a esquerda, enquanto o filho direito desse nó (`y`) se desloca para cima e se torna a nova raiz da subárvore rotacionada.
+   
 3. **Rotação à esquerda e depois à direita** (`rotate_left` **+** `rotate_right`): É aplicada quando a subárvore esquerda se torna right-heavy. Primeiro, a subárvore esquerda é rotacionada à esquerda para transformar o problema em um cenário left-heavy. Em seguida, é aplicada uma rotação à direita na raiz.
+   
 4. **Rotação à direita e depois à esquerda** (`rotate_right` **+** `rotate_left`): É aplicada quando a subárvore direita se torna left-heavy. Primeiro, a subárvore direita é rotacionada à direita para transformar o problema em um cenário right-heavy. Depois, é aplicada uma rotação à esquerda na raiz.
 
 Essas rotações garantem que a árvore permaneça balanceada após cada operação de inserção, mantendo assim a eficiência das operações.
@@ -170,8 +176,70 @@ Em resumo, a AVLTree é uma estrutura de dados que garante que a árvore permane
 
 ## **Codificação de Huffman**
 
+
+### Estrutura do Nó de Huffman
+
 <div align="justify">
-  
+
+`Huffman Node` é a estrutura básica para representar um nó na Árvore de Huffman. Ela tem:
+
+- `word`: Uma palavra ou caractere a ser codificado.
+- `frequency`: A frequência da palavra ou caractere nos dados.
+- `left` e `right`: Ponteiros para os nós filhos.
+
+Cada nó tem uma `word` (palavra), uma `frequency` (frequência da palavra), e ponteiros para seus filhos `left` e `right`. Há um construtor para inicializar o nó com uma palavra e frequência e um destrutor que deleta os filhos do nó. O destrutor (`~HuffmanNode`) garante que, quando um nó é destruído, seus nós filhos também são destruídos, evitando vazamentos de memória.
+
+</div>
+
+### Estrutura de Comparação:
+
+<div align="justify">
+	
+A estrutura `Compare` é definida para criar um critério de comparação para os nós. É usada para garantir que o nó com menor frequência seja sempre o topo do min-heap. Se dois nós tiverem a mesma frequência, o operador de comparação não define explicitamente qual virá primeiro.
+
+</div>
+
+### Construção da Árvore de Huffman:
+
+<div align="justify">
+	
+A função `build_huffman_tree` constrói a Árvore de Huffman usando um min-heap.
+
+1. **Min-Heap**: A função inicia com a criação de um min-heap, uma estrutura que mantém o elemento de menor valor no topo. Neste contexto, usamos frequências para determinar essa ordem.
+
+2. **Preenchendo o Min-Heap**: Para cada par palavra-frequência na lista `top_k`, cria-se um nó de Huffman e insere-o no min-heap.
+
+3. **Construção da Árvore**:
+	- Enquanto houver mais de um nó no min-heap:
+		- Retira-se os dois nós de menor frequência (nós `left` e `right`).
+		- Se tiverem a mesma frequência, mas a palavra do `left` for lexicograficamente maior que a do `right`, eles são trocados.
+		- Cria-se um novo nó `merged`, cuja frequência é a soma das frequências de `left` e `right`, e define-se `left` e `right` como seus filhos.
+		- Insere-se o nó `merged` de volta no min-heap.
+	- O processo se repete até sobrar apenas um nó, a raiz da Árvore de Huffman.
+
+**Resultado**: A função retorna a raiz da Árvore de Huffman construída.
+
+</div>
+
+### Geração dos Códigos de Huffman:
+
+<div align="justify">
+	
+`generate_huffman_codes` é uma função recursiva que gera códigos Huffman para cada palavra ou caractere na Árvore de Huffman.
+
+Ela navega pela árvore, adicionando "0" ao código quando vai para a esquerda e "1" quando vai para a direita.
+
+Quando chega a um nó folha (um nó que tem uma palavra/caractere), ela associa o código gerado a essa palavra no mapa huffmanCodes.
+
+</div>
+
+### Travessia em Pré-ordem na Árvore de Huffman:
+
+<div align="justify">
+	
+A função `pre_order_huffman` coleta as palavras e seus códigos de Huffman em uma travessia em pré-ordem da árvore.
+O resultado é um vetor de pares, onde o primeiro elemento do par é uma palavra e o segundo é o código de Huffman correspondente.
+
 </div>
 
 # 🔬 Experimentação 
