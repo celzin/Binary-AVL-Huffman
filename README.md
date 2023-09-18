@@ -7,22 +7,21 @@
 # ⚠️ Apresentação do Problema 
 
 <div align="justify">
-Neste trabalho, o objetivo é criar um sistema que possibilite a funcionalidade de autocompletar e oferecer sugestões de palavras aos usuários de maneira rudimentar. Para atingir essa finalidade, adotaremos a
-estrutura da árvore binária como base. A seguir, é apresentado os passos necessários para a implementação.
+Neste trabalho, o objetivo é criar um sistema que possibilite a funcionalidade de autocompletar e oferecer sugestões de palavras aos usuários de maneira rudimentar. Para atingir essa finalidade, adotaremos a estrutura da árvore binária como base. A seguir, é apresentado os passos necessários para a implementação.
 
-- Iniciamos solicitando ao usuário um arquivo denominado "input.data" (inserido na pasta "dataset"), contendo uma lista de 'palavras de pesquisa'. Cada palavra nesse arquivo será considerada como termo de pesquisa para o sistema. As palavras serão separadas por linhas, sendo uma 'palavras de pesquisa' por linha.
+- Iniciamos solicitando ao usuário um arquivo denominado `input.data` (inserido na pasta `dataset`), contendo uma lista de _'palavras de pesquisa'_. Cada palavra nesse arquivo será considerada como termo de pesquisa para o sistema. As palavras serão separadas por linhas, sendo uma _'palavras de pesquisa'_ por linha.
 
-- Utilize a implementação anterior (Heap e Hash) para encontrar a frequência de cada 'palavra de pesquisa' dentre a coleção de textos dentro da pasta "dataset". Mais a frente, o programa deverá mostrar a palavra, sua frequência e o texto que se encontra.
+- Utilize a implementação anterior (`Heap` e `Hash`) para encontrar a frequência de cada _'palavras de pesquisa'_ dentre a coleção de textos dentro da pasta `dataset`. Mais a frente, o programa deverá mostrar a palavra, sua frequência e o texto que se encontra.
 
-- Crie um conjunto de árvores binárias a partir do textos previamente fornecidos na pasta "dataset". O objetivo é estabelecer uma relação entre as palavras do texto e as 'palavras de pesquisa'. Essa abordagem consistirá em três etapas diferentes:
+- Crie um conjunto de árvores binárias a partir do textos previamente fornecidos na pasta `dataset`. O objetivo é estabelecer uma relação entre as palavras do texto e as _'palavras de pesquisa'_. Essa abordagem consistirá em três etapas diferentes:
 
-	- Árvore Binária Padrão: Implemente uma árvore binária tradicional, selecionando as palavras mais relevantes (top K palavras) e relacionadas à pesquisa feita pela "Heap e Hash" em cada texto. A relevância de uma palavra será determinada por sua frequência e (proximidade à) 'palavra de pesquisa'.
+	- **Árvore Binária Padrão**: Implemente uma árvore binária tradicional, selecionando as palavras mais relevantes (top K palavras) e relacionadas à pesquisa feita pela "Heap e Hash" em cada texto. A relevância de uma palavra será determinada por sua frequência e "proximidade" à _'palavras de pesquisa'_.
 	
- 	- Árvore AVL: Implemente uma árvore AVL e repita o processo de análise exemplificado com as devidas adaptações da estrutura.
+ 	- **Árvore AVL**: Implemente uma árvore AVL e repita o processo de análise exemplificado com as devidas adaptações da estrutura.
 	
-	- Codificação de Huffman: Implemente uma estutura de código de Huffman para otimizar a ideia de árvore binária padrão. Calcule códigos para cada palavra e reorganize a estrutura da árvore com base nesses códigos. 
+	- **Codificação de Huffman**: Implemente uma estutura de código de Huffman para otimizar a ideia de árvore binária padrão. Calcule códigos para cada palavra e reorganize a estrutura da árvore com base nesses códigos. 
 
-- Ao final deve ser gerado um arquivo "output.txt" (dentro da pasta "dataset") contendo a pré-ordem de cada umas das 3 estruturas geradas, a 'palavra de pesquisa' juntamente com sua frequência e o texto em que aparece.
+- Ao final deve ser gerado um arquivo `output.txt` (dentro da pasta `dataset`) contendo a pré-ordem de cada umas das 3 estruturas geradas, a _'palavras de pesquisa'_ juntamente com sua frequência e o texto em que aparece.
 
 - Compare o (tempo médio de processamento) entre a construção da estrutura e a geração de saída (Huffman) em comparação com as abordagens binária e AVL.
 
@@ -30,23 +29,19 @@ estrutura da árvore binária como base. A seguir, é apresentado os passos nece
 
 # 💡 Solução do Problema 
 
-## Funcionamento Geral
-
-<div align="justify">
-	
-- **Carregamento das Palavras-Chave**: A função `load_search_terms` é responsável por carregar as palavras-chave de um arquivo. O nome do arquivo é passado como argumento e a função retorna um vetor de strings contendo as palavras. Ela usa a biblioteca de E/S de arquivos do C++ `(<fstream>)` para ler o arquivo linha por linha e armazenar cada linha (palavra) em um vetor.
-
-- **Processamento do Conjunto de Dados**: A função `process_dataset_files` é a espinha dorsal do programa. Ela é responsável por processar cada arquivo no diretório de conjuntos de dados. Para fazer isso, ela usa a função opendir para abrir o diretório e `readdir` para ler cada arquivo no diretório. Dentro deste loop, para cada arquivo, uma tabela hash e uma heap são inicializadas. A tabela hash provavelmente armazena a frequência de cada palavra e a heap é usada para armazenar as palavras mais frequentes (top-k palavras).
-
-- **Tratando Top-k+1 Palavras**: Dentro da função `process_dataset_files`, há um tratamento especial para garantir que a palavra pesquisada não apareça nas top-k palavras, mesmo que seja uma das palavras mais frequentes. Para fazer isso, a função primeiro obtém as top-k palavras usando `heap.get_top_k()`. Se a palavra pesquisada estiver entre elas, ela é removida e a próxima palavra mais frequente é adicionada, garantindo que ainda haja k palavras no vetor. Esta lógica garante que a palavra pesquisada não seja contabilizada duas vezes.
-
-</div>
-
 ## **Hash e Heap**
 
 <div align="justify">
 	
-As duas estruturas adotadas seguem a mesma implementação do [trabalho anterior](https://github.com/celzin/Top-K-Itens) com algumas pequenas alterações na estrutura da heap para pegar as "top-K+1-palavras". 
+As estruturas de Tabela `Hash` e `Heap` adotadas permaneceram práticamente inaltaredas em relação a [implementação anterior](https://github.com/celzin/Top-K-Itens), com algumas alterações para resolução do escopo do problema. As alterações na estrutura `Heap` consistem na inserção dos _'top-k+1 elementos'_ na _heap_ e da adição da função `get_top_k_words_with_removal`. Esta função obtém os _'top-k+1 elementos'_ do _heap_ e verifica se a _'palavra-pesquisada'_ está entre eles. Se estiver, ela é removida. Caso contrário, o último elemento (que seria o _'top-k+1'_) é removido. O vetor resultante com as top-k palavras é retornado. 
+
+</div>
+
+## Carregamento das Palavras-Chave
+
+<div align="justify">
+	
+A função `load_search_terms` é responsável por carregar as _palavras-chave_ de um arquivo. O nome do arquivo é passado como argumento e a função retorna um vetor de strings contendo as palavras. Ela usa a biblioteca de E/S de arquivos do C++ `(<fstream>)` para ler o arquivo linha por linha e armazenar cada linha (palavra) em um vetor
 
 </div>
 
@@ -239,6 +234,21 @@ Quando chega a um nó folha (um nó que tem uma palavra/caractere), ela associa 
 	
 A função `pre_order_huffman` coleta as palavras e seus códigos de Huffman em uma travessia em pré-ordem da árvore.
 O resultado é um vetor de pares, onde o primeiro elemento do par é uma palavra e o segundo é o código de Huffman correspondente.
+
+</div>
+
+## **Processamento do Conjunto de Dados** 
+
+<div align="justify">
+	
+A função `process_dataset_files` é a espinha dorsal do programa. Ela é responsável por processar cada arquivo no diretório de conjuntos de dados. Para fazer isso, ela usa a função opendir para abrir o diretório e `readdir` para ler cada arquivo no diretório. Dentro deste loop, para cada arquivo, uma tabela hash e uma heap são inicializadas.
+
+- **Inicializa** estruturas: **tabela hash**, **heap**, árvores **binária**, **AVL** e **Huffman**.
+- **Processa** cada arquivo no diretório, atualizando a tabela hash com palavras e frequências.
+- **Extrai** as palavras mais frequentes para o heap e ajusta esse heap removendo os termos de pesquisa, se presentes.
+- **Preenche** as três árvores com as palavras mais frequentes.
+- **Registra** no arquivo de saída: termo de pesquisa, frequência, palavras frequentes, percurso de pré-ordem para cada árvore e tempos de inserção.
+- **Medição de Tempo**: Durante o processamento das árvores, o tempo de inserção é medido e registrado.
 
 </div>
 
