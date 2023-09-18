@@ -53,9 +53,41 @@ As duas estruturas adotadas seguem a mesma implementação do [trabalho anterior
 ## **Árvore Binária**
 
 <div align="justify">
+A árvore binária é uma estrutura de dados hierárquica que possui um elemento central chamado de raiz, a partir do qual se desdobram dois possíveis subárvores, comumente chamadas de subárvore da esquerda e subárvore da direita. Cada elemento da árvore é armazenado em um "nó". O nó tem um valor e dois ponteiros, um para o nó à esquerda e outro para o nó à direita.
 
+Neste código, cada nó armazena um par de valores - uma `string` e um `int`. A organização dos nós na árvore é determinada pelo valor `int` do par. Se dois pares tiverem o mesmo valor `int`, a ordenação é então determinada pela `string`.
 </div>
 
+### Construtor:
+
+<div align="justify">
+Ao construir um objeto da classe `BinaryTree`, a raiz da árvore é inicialmente definida como nula (`nullptr`), indicando que a árvore está vazia.
+</div>
+
+### Inserção:
+
+<div align="justify">
+O método de inserção permite adicionar um novo par `(string, int)` à árvore. A lógica de inserção verifica o valor `int` do par para determinar se o novo nó deve ser posicionado à esquerda ou à direita do nó atual:
+	
+- Se o valor `int` do novo par for menor (ou igual e a `string` for alfabeticamente menor), ele é posicionado à esquerda.
+- Se o valor `int` do novo par for maior, ele é posicionado à direita.
+
+A inserção é uma operação recursiva, o que significa que o método chama a si mesmo até encontrar a posição correta para inserir o novo nó.
+</div>
+
+### Travessias:
+
+<div align="justify">
+As travessias são métodos que percorrem todos os nós da árvore em uma ordem específica. Existem três métodos de travessia apresentados:
+
+**Pré-ordem**: Neste método, visitamos primeiro a raiz, depois a subárvore da esquerda e, finalmente, a subárvore da direita. Ou seja, o nó atual é processado antes de seus descendentes.
+
+**Em ordem** (In-Order): Nesta travessia, visitamos primeiro a subárvore da esquerda, depois a raiz e, finalmente, a subárvore da direita. Para uma árvore binária de busca, isso resulta em processar os valores em ordem crescente.
+
+**Pós-ordem**: Aqui, visitamos primeiro a subárvore da esquerda, depois a subárvore da direita e, por fim, a raiz. Ou seja, o nó atual é processado após seus descendentes.
+
+Em todos os métodos de travessia, a lógica é implementada recursivamente, assim como a inserção. Para cada método de travessia, há duas funções: uma que serve como ponto de entrada (e retorna os valores em um `vector`) e uma função auxiliar recursiva que faz o trabalho real de travessia.
+</div>
 
 ## **Árvore AVL**
 
