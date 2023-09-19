@@ -6,7 +6,7 @@
 
 <h1 align="center">
     <a href="https://laravelcollective.com/tools/banner">
-        <img alt="Banner" title="#Banner" style="object-fit: cover; height:200px;" src="imgs/header-image.png" />
+        <img alt="Banner" title="#Banner" style="object-fit: fill; height:200px;" src="imgs/header-image.png" />
     </a>
 </h1>
 
