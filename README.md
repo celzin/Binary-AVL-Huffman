@@ -7,7 +7,7 @@
 # 📌 Sumário
 
 1. [⚠️ Apresentação do Problema ](#%EF%B8%8F-apresentação-do-problema)
-2. [💡 Solução do Problema ](#-solu%C3%A7%C3%A3o-do-problema)
+2. [💡 Solução do Problema ](-solu-o-do-problema)
 	* [Hash e Heap](#hash-e-heap)
 	* [Carregamento das Palavras-Chave](#carregamento-das-palavras-de-pesquisa)
  	* [Árvore Binária](#%C3%A1rvore-bin%C3%A1ria)
