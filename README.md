@@ -332,7 +332,7 @@ O programa também faz uso de um arquivo [`stopwords.txt`](https://github.com/ce
 
 <div align="justify">
 
-Para alterar o valor de k, para por exemplo, obter as Top 20 palavras mais frequentes basta alterar a seguinte [linha de código](https://github.com/celzin/Top-K-Itens/blob/main/src/main.cpp/#L8):
+Para alterar o valor de k, para por exemplo, obter as Top 20 palavras mais frequentes basta alterar a seguinte [linha de código](https://github.com/celzin/Binary-AVL-Huffman/blob/main/src/include/constants.hpp#L7):
 
 ```C
 // Aqui, é possivel alterar o valor de k, por exemplo, top 20 palavras
