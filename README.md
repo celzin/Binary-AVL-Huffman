@@ -306,10 +306,15 @@ O programa foi projetado para processar um conjunto de arquivos de texto (.txt) 
 
 </div>
 
-## 2. Arquivo de Entrada (input.data)
+## 2. Arquivo de Entrada - 'Palavras de Pesquisa' (`input.data`)
 
 <div align="justify">
 
+É também essencial que o usuário inclua um arquivo denominado `input.data` (dentre a coleção de textos inserida na pasta `dataset`), contendo uma lista de _'palavras de pesquisa'_.
+
+ - Cada palavra nesse arquivo será considerada como termo de pesquisa para o sistema.
+ 
+ - As palavras serão separadas por linhas, sendo uma _'palavras de pesquisa'_ por linha.
 
 </div>
 
