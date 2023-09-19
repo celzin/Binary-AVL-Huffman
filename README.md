@@ -4,6 +4,34 @@
   <img align="center" alt="C++" src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white" />
 </div><br>
 
+# 📌 Sumário
+
+1. [⚠️ Apresentação do Problema ](#%EF%B8%8F-apresentação-do-problema)
+2. [💡 Solução do Problema ](#-solu%C3%A7%C3%A3o-do-problema)
+	* [Hash e Heap](#hash-e-heap)
+	* [Carregamento das Palavras-Chave](#carregamento-das-palavras-de-pesquisa)
+ 	* [Árvore Binária](#%C3%A1rvore-bin%C3%A1ria)
+		- [Construtor](#construtor)
+		- [Inserção](#insercao)
+		- [Travessias](#travessias)
+  	* [Árvore AVL]()
+   		* [Estrutura do Nó]()
+   		* [Altura]()
+   		* [Balanceamento]()
+   		* [Rotações]()
+   		* [Inserção]()
+   		* [Travessia]()
+  	* [Codificação de Huffman]()
+   		* []()
+   		* []()
+   		* []()
+   		* []()
+   		* []()
+       * [Processamento do Conjunto de Dados]()
+4. [Experimentação]()
+5. [Conclusão]()
+6. [Compilação e execução]()	
+
 # ⚠️ Apresentação do Problema 
 
 <div align="justify">
@@ -37,7 +65,7 @@ As estruturas de Tabela `Hash` e `Heap` adotadas permaneceram práticamente inal
 
 </div>
 
-## Carregamento das Palavras-Chave
+## Carregamento das Palavras-de-Pesquisa
 
 <div align="justify">
 	
