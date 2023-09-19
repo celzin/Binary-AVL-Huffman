@@ -255,8 +255,10 @@ A função `process_dataset_files` é a espinha dorsal do programa. Ela é respo
 # 🔬 Experimentação 
 
 <div align="justify">
-	
-Testando o funcionamento do programa para o **Top 20 palavras mais frequentes** através da leitura dos arquivos [`input1.txt`](https://github.com/celzin/Top-K-Itens/blob/main/dataset/input1.txt) e [`input2.txt`](https://github.com/celzin/Top-K-Itens/blob/main/dataset/input2.txt) com o acervo de `stopwords` (palavras que são ignoradas ao processar o texto) fornecidos pelo arquivo [`stopwords.txt`](https://github.com/celzin/Top-K-Itens/blob/main/dataset/stopwords.txt) obteve-se a seguinte saída no terminal.
+
+- **Obs.**: Utilizou-se o acervo de `stopwords` (palavras que são ignoradas ao processar o texto) fornecidos pelo arquivo [`stopwords.txt`]()
+
+- Analisando o texto **""** com ênfase na `palavra de pesquisa` **""** e buscando as **top 10 palavras mais relevantes** no arquivo obteve-se a seguinte saída no terminal.
 
 </div>
 
