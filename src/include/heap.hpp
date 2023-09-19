@@ -1,0 +1,33 @@
+#ifndef HEAP_HPP
+#define HEAP_HPP
+
+#include <string>
+#include <vector>
+#include <iomanip>
+#include <filesystem>
+#include <algorithm> 
+#include "constants.hpp"
+#include "hash_table.hpp"
+
+
+class Heap {
+public:
+    Heap(int k); //
+    void insert(const std::pair<std::string, int> &element); //
+    std::vector<std::pair<std::string, int>> get_top_k() const; //
+    std::pair<std::string, int> get_next_top(); //
+
+private:
+    void heapify_up(); //
+    void heapify_down(int index); //
+    int left_child_index(int index) const; //
+    int right_child_index(int index) const; //
+    int parent_index(int index) const; //
+    int k;
+    std::vector<std::pair<std::string, int>> elements;
+};
+
+void fill_heap_with_top_elements(Heap &heap, const HashTable &hash_table); //
+std::vector<std::pair<std::string, int>> get_top_k_words_with_removal(Heap &heap, const std::string &searched_word);
+
+#endif // HEAP_HPP
