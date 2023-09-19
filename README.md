@@ -6,18 +6,18 @@
 
 # 📌 Sumário
 
-1. [⚠️ Apresentação do Problema ](#%EF%B8%8F-apresentação-do-problema)
-2. [💡 Solução do Problema ](#-solu%C3%A7%C3%A3o-do-problema)
-	* [Hash e Heap](#hash-e-heap)
-	* [Carregamento das Palavras-Chave](#carregamento-das-palavras-de-pesquisa)
-	* [Árvore Binária](#%C3%A1rvore-bin%C3%A1ria)
-	* [Árvore AVL](#%C3%A1rvore-avl)
-	* [Codificação de Huffman]()
-	* [Processamento do Conjunto de Dados]()
-4. [🔬 Experimentação](#-experimenta%C3%A7%C3%A3o)
-5. [🎯 Conclusão](#-conclus%C3%A3o)
-6. [🔄 Compilação e execução](#-compila%C3%A7%C3%A3o-e-execu%C3%A7%C3%A3o)
-7. [📞 Contato](#-contato)
+>1. [⚠️ Apresentação do Problema ](#%EF%B8%8F-apresentação-do-problema)
+>2. [💡 Solução do Problema ](#-solu%C3%A7%C3%A3o-do-problema)
+>		* [Hash e Heap](#hash-e-heap)
+>		* [Carregamento das Palavras-de-Pesquisa](#carregamento-das-palavras-de-pesquisa)
+>		* [Árvore Binária](#%C3%A1rvore-bin%C3%A1ria)
+>		* [Árvore AVL](#%C3%A1rvore-avl)
+>		* [Codificação de Huffman]()
+>		* [Processamento do Conjunto de Dados]()
+>4. [🔬 Experimentação](#-experimenta%C3%A7%C3%A3o)
+>5. [🎯 Conclusão](#-conclus%C3%A3o)
+>6. [🔄 Compilação e execução](#-compila%C3%A7%C3%A3o-e-execu%C3%A7%C3%A3o)
+>7. [📞 Contato](#-contato)
 
 # ⚠️ Apresentação do Problema 
 
