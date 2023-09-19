@@ -50,26 +50,6 @@ int Heap::parent_index(int index) const {
     return (index - 1) / 2;
 }
 
-// void fill_heap_with_top_elements(Heap &heap, const HashTable &hash_table) {
-//     auto all_elements = hash_table.get_all_elements(); // Supondo que você tem um método que retorna todos os elementos
-//     std::sort(all_elements.begin(), all_elements.end(),
-//         [](const std::pair<std::string, int> &a, const std::pair<std::string, int> &b) {
-//         return a.second > b.second;
-//     });
-
-//     for (size_t i = 0; i < std::min(all_elements.size(), static_cast<size_t>(TOP_K + 1)); ++i) {
-//         heap.insert(all_elements[i]);
-//     }
-// }
-
-// std::pair<std::string, int> Heap::get_next_top() {
-//     if (elements.size() == 0) {
-//         return { "", -1 };
-//     }
-
-//     return elements[0];  // O elemento na raiz da min-heap é o menor elemento.
-// }
-
 // Esta função será responsável por preencher o heap com 'top-k + 1' palavras
 void fill_heap_with_top_elements(Heap &heap, const HashTable &hash_table) {
     auto all_elements = hash_table.get_all_elements();

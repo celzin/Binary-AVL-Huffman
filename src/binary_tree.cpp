@@ -19,20 +19,6 @@ void BinaryTree::insert(Node *&node, const std::pair<std::string, int> &data) {
     }
 }
 
-// std::vector<std::string> BinaryTree::pre_order() const {
-//     std::vector<std::string> result;
-//     pre_order(root, result);
-//     return result;
-// }
-
-// void BinaryTree::pre_order(Node *node, std::vector<std::string> &result) const {
-//     if (node != nullptr) {
-//         result.push_back(node->data.first);
-//         pre_order(node->left, result);
-//         pre_order(node->right, result);
-//     }
-// }
-
 std::vector<std::pair<std::string, int>> BinaryTree::pre_order() const {
     std::vector<std::pair<std::string, int>> result;
     pre_order(root, result);

@@ -16,7 +16,6 @@ class BinaryTree {
 public:
     BinaryTree();
     void insert(const std::pair<std::string, int> &data);
-    // std::vector<std::string> pre_order() const;
     std::vector<std::pair<std::string, int>> pre_order() const;
     std::vector<std::string> in_order() const;
     std::vector<std::string> post_order() const;
@@ -24,7 +23,6 @@ public:
 private:
     Node *root;
     void insert(Node *&node, const std::pair<std::string, int> &data);
-    // void pre_order(Node *node, std::vector<std::string> &result) const;
     void pre_order(Node *node, std::vector<std::pair<std::string, int>> &result) const;
     void in_order(Node *node, std::vector<std::string> &result) const;
     void post_order(Node *node, std::vector<std::string> &result) const;

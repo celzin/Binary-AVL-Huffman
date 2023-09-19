@@ -26,7 +26,6 @@ public:
     int get_word_frequency(const std::string &word) const; // new
 
 private:
-    // int hash_function(const std::string &word) const; // new
     size_t hash(const std::string &key) const; //
     size_t size;
     std::vector<std::list<std::pair<std::string, int>>> table;
