@@ -4,6 +4,12 @@
   <img align="center" alt="C++" src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white" />
 </div><br>
 
+<h1 align="center">
+    <a href="https://laravelcollective.com/tools/banner">
+        <img alt="Banner" title="#Banner" style="object-fit: cover; height:250px;" src="imgs/header-image.png" />
+    </a>
+</h1>
+
 # 📌 Sumário
 
 >1. [⚠️ Apresentação do Problema ](#%EF%B8%8F-apresentação-do-problema)
