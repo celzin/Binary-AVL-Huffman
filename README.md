@@ -4,10 +4,8 @@
   <img align="center" alt="C++" src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white" />
 </div>
 
-#
-
 <h1 align="center">
-    <a href="https://laravelcollective.com/tools/banner">
+    <a>
         <img alt="Banner" title="#Banner" style="object-fit: fill; height:200px;" src="imgs/header-image.png" />
     </a>
 </h1>
