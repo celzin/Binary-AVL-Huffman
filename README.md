@@ -303,8 +303,22 @@ Segue o vetor de **palavras** e suas respectivas **frequências** na ordem em qu
 {sentido(111), sobre(114), modo(129), sistema(119), segundo(114), 
 sujeito(154), condição(133), mundo(144), priori(144), pensamento(115)}
 ```
+<p align="center">
+<em>Trecho 1: Output resultante das Top-10-palavra mais relevantes do texto.</em>
+</p>
 
 ### Árvore Binária
+
+```C
+|------------------ Pré-Ordem-Binária -----------------|
+{sentido (111), sobre (114), segundo (114), modo (129), sistema (119), 
+pensamento (115), sujeito (154), condição (133), mundo (144), priori (144)}
+```
+<p align="center">
+<em>Trecho 2: Output resultante da Pré-Ordem para Árvore Binária.</em>
+</p>
+
+Montando a Àrvoré Binária "na mão" para conferir a coerência do output.
 
 <p align="center">
 <img src="imgs/arvoreb.png" width="400"/> 
@@ -313,34 +327,49 @@ sujeito(154), condição(133), mundo(144), priori(144), pensamento(115)}
 <em>Imagem 1: Montagem esquemática da Árvore Binária resultante. </em>
 </p>
 
-```C
-|------------------ Pré-Ordem-Binária -----------------|
-{sentido (111), sobre (114), segundo (114), modo (129), sistema (119), 
-pensamento (115), sujeito (154), condição (133), mundo (144), priori (144)}
-```
-
 ### Árvore AVL
-
-<p align="center">
-<img src="imgs/arvoreavl.png" width="400"/> 
-</p>
-<p align="center">
-<em>Imagem 2: Montagem esquemática da Árvore AVL resultante. </em>
-</p>
 
 ```C
 |------------------- Pré-Ordem-AVL --------------------|
 {modo (129), sobre (114), sentido (111), segundo (114), sistema (119), 
 pensamento (115), mundo (144), condição (133), sujeito (154), priori (144), }
 ```
+<p align="center">
+<em>Trecho 3: Output resultante da Pré-Ordem para Árvore AVL.</em>
+</p>
+
+Montando a Àrvoré AVL "na mão" com 3 inserções por vez para conferir a coerência do output.
+
+<p align="center">
+<img src="imgs/insertavl1.png" width="400"/> 
+</p>
+<p align="center">
+<em>Imagem 2: Montagem esquemática da Árvore AVL resultante. </em>
+</p>
+
+<p align="center">s
+<img src="imgs/insertavl2.png" width="500"/> 
+</p>
+<p align="center">
+<em>Imagem 3: Montagem esquemática da Árvore AVL resultante. </em>
+</p>
 
 ### Codificação de Huffman
 
+Foi utilizado o site [Huffman Calculator](planetcalc.com/24811/) para conferência da codifição de huffman implementada.
+
 <p align="center">
-<img src="imgs/arvorehuffman.png" width="400"/> 
+<img src="imgs/huffman1.png" width="900"/> 
 </p>
 <p align="center">
-<em>Imagem 3: Montagem esquemática de Huffman resultante. </em>
+<em>Imagem 4: Inserção de nome e valor para codifição de huffman </em>
+</p>
+
+<p align="center">
+<img src="imgs/huffman2.png" width="900"/> 
+</p>
+<p align="center">
+<em>Imagem 5: Tabela de codificação resultante com os valores dos códigos a sua respectiva palavra </em>
 </p>
 
 ```C
@@ -355,6 +384,16 @@ pensamento (115), mundo (144), condição (133), sujeito (154), priori (144), }
         | sobre -> 1101
         | segundo -> 1110
         | pensamento -> 1111
+```
+
+### Tempos das Estruturas
+
+Para o teste realizado os tempos 
+
+```C
+( Tempo Binária: 72 microssegundos )
+( Tempo AVL: 76 microssegundos )
+( Tempo Huffman: 135 microssegundos )
 ```
 
 # 🎯 Conclusão 
