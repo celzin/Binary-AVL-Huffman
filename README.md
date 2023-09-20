@@ -115,6 +115,12 @@ Em todos os métodos de travessia, a lógica é implementada recursivamente, ass
 
 </div>
 
+### Custos Computacionais
+
+- Inserção: Depende diretamente da estrutura da árvore no momento. No pior caso, ela se comporta linearmente, O(n), se a árvore degrada para uma lista encadeada.
+
+- Travessias (`pre_order`, `in_order`, `post_order`): Visitam todos os nós uma vez, resultando em um custo O(n).
+
 ## **Árvore AVL**
 
 <div align="justify">
@@ -190,8 +196,19 @@ Em resumo, a AVLTree é uma estrutura de dados que garante que a árvore permane
 
 </div>
 
+### Custos Computacionais
+
+- Inserção: A AVL garante que a árvore permaneça balanceada, portanto, o custo da inserção (incluindo possíveis rotações) é O(logn).
+
+- Travessia (`pre_order`): Semelhante à Árvore Binária de Busca, a travessia visita todos os nós uma vez, levando a um custo O(n).
+
 ## **Codificação de Huffman**
 
+<div align="justify">
+	
+É, basicamente, uma árvore especializada para compressão de dados. Seu objetivo não é suportar operações de inserção ou busca eficientes, mas sim representar dados de forma compacta.
+
+</div>
 
 ### Estrutura do Nó de Huffman
 
@@ -258,6 +275,12 @@ O resultado é um vetor de pares, onde o primeiro elemento do par é uma palavra
 
 </div>
 
+### Tempos Computacionais
+
+- Construção: Usa um min-heap, e cada inserção ou remoção do min-heap pode ser feita em O(logn). Como a árvore é construída inserindo e removendo dois elementos do heap em cada iteração até que o heap contenha apenas um elemento (a raiz da Árvore de Huffman), o custo total é O(nlogn).
+
+- Geração de Códigos: A geração de códigos percorre todos os nós da árvore exatamente uma vez, resultando em um custo O(n).
+  
 ## **Processamento do Conjunto de Dados** 
 
 <div align="justify">
@@ -277,7 +300,7 @@ A função `process_dataset_files` é a espinha dorsal do programa. Ela é respo
 
 <div align="justify">
 
-- **Obs.**: Utilizou-se o acervo de `stopwords` (palavras que são ignoradas ao processar o texto) fornecidos pelo arquivo [`stopwords.txt`]()
+- **Obs.**: Utilizou-se o acervo de `stopwords` (palavras que são ignoradas ao processar o texto) fornecidos pelo arquivo [`stopwords.txt`]().
 
 - Analisando o texto **"filosofia.txt"** com ênfase na `palavra de pesquisa` **"teoria"** e buscando as **top 10 palavras mais relevantes** no arquivo obteve-se a seguinte saída no terminal:
 
@@ -385,40 +408,71 @@ Foi utilizado o site [Huffman Calculator](planetcalc.com/24811/) para conferênc
         | segundo -> 1110
         | pensamento -> 1111
 ```
+<p align="center">
+<em>Trecho 4: Output resultante da Pré-Ordem para Árvore AVL.</em>
+</p>
 
 ### Tempos das Estruturas
-
-Para o teste realizado os tempos 
 
 ```C
 ( Tempo Binária: 72 microssegundos )
 ( Tempo AVL: 76 microssegundos )
 ( Tempo Huffman: 135 microssegundos )
 ```
+<p align="center">
+<em>Trecho 5: Output resultante dos Tempos de execução de cada estrutura</em>
+</p>
+
+1. Árvore **Binária** de Busca (BST):
+	- Tempo de Execução: 72 microssegundos
+	- Análise: Rápida, mas sua eficiência pode variar com base na ordem de inserção.
+
+2. Árvore **AVL**:
+	- Tempo de Execução: 76 microssegundos
+	- Análise: Ligeiramente mais lenta que a BST devido ao balanceamento automático após cada inserção.
+
+3. Árvore de **Huffman**:
+	- Tempo de Execução: 135 microssegundos
+	- Análise: Mais demorada porque constrói com base em frequências e gera códigos únicos para cada palavra.
 
 # 🎯 Conclusão 
-	
-## Árvore Binária
+
+## Árvore Binária de Busca 
 
 <div align="justify">
+	
+Permite buscas rápidas, inserções e deleções em um conjunto ordenado de itens. As operações têm um tempo de execução médio bastante eficiente, especialmente se os dados estiverem bem distribuídos. Porém, se os dados forem inseridos de maneira não balanceada (por exemplo, em ordem crescente), a árvore pode se degenerar em uma lista vinculada, tornando as operações ineficientes.
 
 </div>
 
 ## Árvore AVL
 
 <div align="justify">
+	
+Supera a principal desvantagem da BST, garantindo que a árvore esteja sempre balanceada. Assim como a BST, inclui inserção, busca e deleção. Devido ao seu auto-balanceamento, a AVL garante que as operações sejam realizadas em tempo logarítmico, independentemente da ordem de inserção dos dados. Porém as operações de inserção e deleção podem ser ligeiramente mais lentas do que em uma BST padrão devido ao custo de rotações adicionais e lógica de balanceamento..
 
 </div>
 
-## Codificação de Huffman
+## Árvore de Huffman:
 
 <div align="justify">
+	
+Tem como objetivo a compressão de dados. A ideia central é codificar dados frequentes com códigos mais curtos e dados menos frequentes com códigos mais longos.
+Operações Típicas: construção da árvore e geração de códigos. Fornece uma codificação eficiente, reduzindo o tamanho do dado codificado. Porém a eficiência da compressão depende da distribuição de frequência dos dados.
 
 </div>
 
-## Funcionamento Geral e Custos Computacionais
+## Desfecho e Custos
 
 <div align="justify">
+	
+A **BST** é simples e eficiente para operações padrão, mas sua eficiência pode variar com base na ordem de inserção.
+
+A **AVL**, embora ligeiramente mais lenta que a BST para inserções, garante tempos de busca consistentemente rápidos devido ao seu balanceamento.
+
+A **Huffman** é especializada na codificação de informações com base na frequência, e, como resultado, é mais demorada em termos de construção. No entanto, o benefício é uma representação compacta das palavras, o que pode ser valioso em aplicações de compressão.
+
+Assim, a escolha da estrutura depende do objetivo final: se você quer buscas rápidas, uma BST ou AVL pode ser ideal. Se a compressão ou representação codificada é o objetivo, então a árvore de Huffman é a escolha.
 
 </div>
 
@@ -428,9 +482,9 @@ Para o teste realizado os tempos
 
 <div align="justify">
 
-O programa foi projetado para processar um conjunto de arquivos de texto (.txt) contidos na pasta [`dataset`](https://github.com/celzin/Top-K-Itens/tree/main/dataset). Então, para o correto funcionamento do programa:
+O programa foi projetado para processar um conjunto de arquivos de texto (.txt) contidos na pasta [`dataset`](). Então, para o correto funcionamento do programa:
 
-- Certifique-se de incluir os arquivos preferencialmente no formato <code>textoN.txt</code> dentro da pasta [<code>dataset</code>](https://github.com/celzin/Top-K-Itens/tree/main/dataset).
+- Certifique-se de incluir os arquivos preferencialmente no formato <code>textoN.txt</code> dentro da pasta [<code>dataset</code>]().
 -  Ateste que os arquivos de texto estejam no formato correto (por exemplo, .txt) e que não contenham caracteres inválidos ou não reconhecidos.
 
 </div>
@@ -451,9 +505,9 @@ O programa foi projetado para processar um conjunto de arquivos de texto (.txt) 
 
 <div align="justify">
 
-O programa também faz uso de um arquivo [`stopwords.txt`](https://github.com/celzin/Top-K-Itens/blob/main/dataset/stopwords.txt). Este arquivo contém palavras que são comumente usadas, mas que geralmente são ignoradas ao processar texto (por exemplo, "e", "o", "de" etc.).
+O programa também faz uso de um arquivo [`stopwords.txt`](). Este arquivo contém palavras que são comumente usadas, mas que geralmente são ignoradas ao processar texto (por exemplo, "e", "o", "de" etc.).
 
-  - Certifique-se de que o arquivo `stopwords.txt` esteja localizado no diretório [`dataset`](https://github.com/celzin/Top-K-Itens/tree/main/dataset).
+  - Certifique-se de que o arquivo `stopwords.txt` esteja localizado no diretório [`dataset`]().
 
 </div>
 
@@ -475,7 +529,7 @@ const int TOP_K = 20;
 
 <div align="justify">
 
-Por fim, esse programa possui um arquivo [`Makefile`](https://github.com/celzin/Top-K-Itens/blob/main/Makefile) e um [`CMakeLists`](https://github.com/celzin/Top-K-Itens/blob/main/CMakeLists.txt), os quais realizam todo o procedimento de compilação e execução. Para tanto, cabe ao usuário escolher o de sua preferência, porém se atente ao fato de que para cada um temos as seguintes diretrizes de execução:
+Por fim, esse programa possui um arquivo [`Makefile`]() e um [`CMakeLists`](), os quais realizam todo o procedimento de compilação e execução. Para tanto, cabe ao usuário escolher o de sua preferência, porém se atente ao fato de que para cada um temos as seguintes diretrizes de execução:
 
 </div>
 
