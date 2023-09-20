@@ -466,13 +466,13 @@ Operações Típicas: construção da árvore e geração de códigos. Fornece u
 
 <div align="justify">
 	
-A **BST** é simples e eficiente para operações padrão, mas sua eficiência pode variar com base na ordem de inserção.
+A **BST** tem uma implementação simples, mas sua eficiência pode ser comprometida se a árvore se tornar desbalanceada. Isso pode levar a operações de inserção e busca menos eficientes no pior caso.
 
-A **AVL**, embora ligeiramente mais lenta que a BST para inserções, garante tempos de busca consistentemente rápidos devido ao seu balanceamento.
+A **AVL**, embora ligeiramente mais lenta que a BST para inserções, garante tempos de busca consistentemente rápidos devido ao seu balanceamento, mantendo suas operações eficientes (em termos logarítmicos), porém, essa eficiência vem ao custo de rotações adicionais e lógica de balanceamento.
 
-A **Huffman** é especializada na codificação de informações com base na frequência, e, como resultado, é mais demorada em termos de construção. No entanto, o benefício é uma representação compacta das palavras, o que pode ser valioso em aplicações de compressão.
+A **Huffman** é especializada na codificação de informações com base na frequência, e, como resultado, é mais demorada em termos de construção. No entanto, o benefício é uma representação compacta das palavras, o que pode ser valioso em aplicações de compressão. O custo computacional para construí-la, na implementação atual, é predominantemente dominado pela construção do _min-heap_.
 
-Assim, a escolha da estrutura depende do objetivo final: se você quer buscas rápidas, uma BST ou AVL pode ser ideal. Se a compressão ou representação codificada é o objetivo, então a árvore de Huffman é a escolha.
+Assim, a escolha entre essas estruturas depende fortemente do problema específico que você está tentando resolver e das garantias de desempenho que você precisa.
 
 </div>
 
