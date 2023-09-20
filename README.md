@@ -279,17 +279,84 @@ A função `process_dataset_files` é a espinha dorsal do programa. Ela é respo
 
 - **Obs.**: Utilizou-se o acervo de `stopwords` (palavras que são ignoradas ao processar o texto) fornecidos pelo arquivo [`stopwords.txt`]()
 
-- Analisando o texto **""** com ênfase na `palavra de pesquisa` **""** e buscando as **top 10 palavras mais relevantes** no arquivo obteve-se a seguinte saída no terminal.
+- Analisando o texto **"filosofia.txt"** com ênfase na `palavra de pesquisa` **"teoria"** e buscando as **top 10 palavras mais relevantes** no arquivo obteve-se a seguinte saída no terminal:
 
 </div>
 
 <p align="center">
-<img src="imgs/terminal.png" width="250"/> 
+<img src="imgs/teoria.png" width="600"/> 
 </p>
 <p align="center">
-<em>Imagem 1: Saída no terminal para os Top 20 elementos mais frequentes. </em>
+<em>Imagem 1: . </em>
 </p>
-	
+
+- A frente será mostrada a confirmação da saída resultante esperada dada a entrada fornecida. 
+
+## Conferindo a travessia das Árvores:
+
+### Inserção das 'top-k-palavras'
+
+Segue o vetor de **palavras** e suas respectivas **frequências** na ordem em que serão inseridos nas árvores:
+
+```C
+|-------------------------- Top-k-Palavras --------------------------|
+{sentido(111), sobre(114), modo(129), sistema(119), segundo(114), 
+sujeito(154), condição(133), mundo(144), priori(144), pensamento(115)}
+```
+
+### Árvore Binária
+
+<p align="center">
+<img src="imgs/arvoreb.png" width="400"/> 
+</p>
+<p align="center">
+<em>Imagem 1: Montagem esquemática da Árvore Binária resultante. </em>
+</p>
+
+```C
+|------------------ Pré-Ordem-Binária -----------------|
+{sentido (111), sobre (114), segundo (114), modo (129), sistema (119), 
+pensamento (115), sujeito (154), condição (133), mundo (144), priori (144)}
+```
+
+### Árvore AVL
+
+<p align="center">
+<img src="imgs/arvoreavl.png" width="400"/> 
+</p>
+<p align="center">
+<em>Imagem 2: Montagem esquemática da Árvore AVL resultante. </em>
+</p>
+
+```C
+|------------------- Pré-Ordem-AVL --------------------|
+{modo (129), sobre (114), sentido (111), segundo (114), sistema (119), 
+pensamento (115), mundo (144), condição (133), sujeito (154), priori (144), }
+```
+
+### Codificação de Huffman
+
+<p align="center">
+<img src="imgs/arvorehuffman.png" width="400"/> 
+</p>
+<p align="center">
+<em>Imagem 3: Montagem esquemática de Huffman resultante. </em>
+</p>
+
+```C
+|----------------- Códigos de Huffman -----------------|
+        | sistema -> 000
+        | modo -> 001
+        | condição -> 010
+        | priori -> 011
+        | mundo -> 100
+        | sujeito -> 101
+        | sentido -> 1100
+        | sobre -> 1101
+        | segundo -> 1110
+        | pensamento -> 1111
+```
+
 # 🎯 Conclusão 
 	
 ## Árvore Binária

@@ -1,86 +1,17 @@
 | Palavra Pesquisada | Frequência | Texto-Origem |-------------------- Top-k-Palavras ------------------|
 
-política                      198        politica.txt         {processo(198), saúde(201), sentido(200), metas(199), políticas(267), atual(201), político(400), melhoria(201), assim(201), eleitores(199)}
+teoria                      192      filosofia2.txt         {sentido(111), sobre(114), modo(129), sistema(119), segundo(114), 
+                                                             sujeito(154), condição(133), mundo(144), priori(144), pensamento(115)}
 
                                                   |------------------ Pré-Ordem-Binária -----------------|
-                                                      {processo (198), saúde (201), sentido (200), metas (199), eleitores (199), atual (201), assim (201), melhoria (201), políticas (267), político (400)}
-                                                            ( Tempo Binária: 95 microssegundos )
+                                                      {sentido (111), sobre (114), segundo (114), modo (129), sistema (119), 
+                                                       pensamento (115), sujeito (154), condição (133), mundo (144), priori (144)}
+                                                            ( Tempo Binária: 72 microssegundos )
 
                                                   |------------------- Pré-Ordem-AVL --------------------|
-                                                      {sentido (200), processo (198), metas (199), eleitores (199), saúde (201), atual (201), assim (201), melhoria (201), políticas (267), político (400), }
-                                                            ( Tempo AVL: 99 microssegundos )
-
-                                                  |----------------- Códigos de Huffman -----------------|
-                                                            | melhoria -> 000
-                                                            | saúde -> 001
-                                                            | assim -> 010
-                                                            | atual -> 011
-                                                            | políticas -> 100
-                                                            | processo -> 1010
-                                                            | metas -> 1011
-                                                            | eleitores -> 1100
-                                                            | sentido -> 1101
-                                                            | político -> 111
-                                                            ( Tempo Huffman: 125 microssegundos )
---------------------------------------------------------------------------------------------------
-
-teoria                      176       filosofia.txt         {sentido(110), sobre(114), priori(125), sistema(115), segundo(114), sujeito(158), modo(129), mundo(134), condição(134), pensamento(115)}
-
-                                                  |------------------ Pré-Ordem-Binária -----------------|
-                                                      {sentido (110), sobre (114), segundo (114), priori (125), sistema (115), pensamento (115), sujeito (158), modo (129), mundo (134), condição (134)}
-                                                            ( Tempo Binária: 65 microssegundos )
-
-                                                  |------------------- Pré-Ordem-AVL --------------------|
-                                                      {priori (125), sobre (114), sentido (110), segundo (114), sistema (115), pensamento (115), mundo (134), modo (129), condição (134), sujeito (158), }
-                                                            ( Tempo AVL: 69 microssegundos )
-
-                                                  |----------------- Códigos de Huffman -----------------|
-                                                            | sistema -> 000
-                                                            | priori -> 001
-                                                            | modo -> 010
-                                                            | condição -> 011
-                                                            | mundo -> 100
-                                                            | sujeito -> 101
-                                                            | sentido -> 1100
-                                                            | sobre -> 1101
-                                                            | segundo -> 1110
-                                                            | pensamento -> 1111
-                                                            ( Tempo Huffman: 105 microssegundos )
---------------------------------------------------------------------------------------------------
-
-política                       19       filosofia.txt         {sentido(110), sobre(114), priori(125), sistema(115), segundo(114), sujeito(158), modo(129), mundo(134), condição(134), pensamento(115)}
-
-                                                  |------------------ Pré-Ordem-Binária -----------------|
-                                                      {sentido (110), sobre (114), segundo (114), priori (125), sistema (115), pensamento (115), sujeito (158), modo (129), mundo (134), condição (134)}
-                                                            ( Tempo Binária: 127 microssegundos )
-
-                                                  |------------------- Pré-Ordem-AVL --------------------|
-                                                      {priori (125), sobre (114), sentido (110), segundo (114), sistema (115), pensamento (115), mundo (134), modo (129), condição (134), sujeito (158), }
-                                                            ( Tempo AVL: 131 microssegundos )
-
-                                                  |----------------- Códigos de Huffman -----------------|
-                                                            | sistema -> 000
-                                                            | priori -> 001
-                                                            | modo -> 010
-                                                            | condição -> 011
-                                                            | mundo -> 100
-                                                            | sujeito -> 101
-                                                            | sentido -> 1100
-                                                            | sobre -> 1101
-                                                            | segundo -> 1110
-                                                            | pensamento -> 1111
-                                                            ( Tempo Huffman: 151 microssegundos )
---------------------------------------------------------------------------------------------------
-
-teoria                      192      filosofia2.txt         {sentido(111), sobre(114), modo(129), sistema(119), segundo(113), sujeito(154), condição(133), mundo(144), priori(144), pensamento(115)}
-
-                                                  |------------------ Pré-Ordem-Binária -----------------|
-                                                      {sentido (111), sobre (114), segundo (114), modo (129), sistema (119), pensamento (115), sujeito (154), condição (133), mundo (144), priori (144)}
-                                                            ( Tempo Binária: 65 microssegundos )
-
-                                                  |------------------- Pré-Ordem-AVL --------------------|
-                                                      {modo (129), sobre (114), sentido (111), segundo (114), sistema (119), pensamento (115), mundo (144), condição (133), sujeito (154), priori (144), }
-                                                            ( Tempo AVL: 67 microssegundos )
+                                                      {modo (129), sobre (114), sentido (111), segundo (114), sistema (119), 
+                                                       pensamento (115), mundo (144), condição (133), sujeito (154), priori (144), }
+                                                            ( Tempo AVL: 76 microssegundos )
 
                                                   |----------------- Códigos de Huffman -----------------|
                                                             | sistema -> 000
@@ -93,18 +24,18 @@ teoria                      192      filosofia2.txt         {sentido(111), sobre
                                                             | sobre -> 1101
                                                             | segundo -> 1110
                                                             | pensamento -> 1111
-                                                            ( Tempo Huffman: 104 microssegundos )
+                                                            ( Tempo Huffman: 135 microssegundos )
 --------------------------------------------------------------------------------------------------
 
 política                       19      filosofia2.txt         {sentido(111), sobre(114), modo(129), sistema(119), segundo(114), sujeito(154), condição(133), mundo(144), priori(144), pensamento(115)}
 
                                                   |------------------ Pré-Ordem-Binária -----------------|
                                                       {sentido (111), sobre (114), segundo (114), modo (129), sistema (119), pensamento (115), sujeito (154), condição (133), mundo (144), priori (144)}
-                                                            ( Tempo Binária: 127 microssegundos )
+                                                            ( Tempo Binária: 158 microssegundos )
 
                                                   |------------------- Pré-Ordem-AVL --------------------|
                                                       {modo (129), sobre (114), sentido (111), segundo (114), sistema (119), pensamento (115), mundo (144), condição (133), sujeito (154), priori (144), }
-                                                            ( Tempo AVL: 130 microssegundos )
+                                                            ( Tempo AVL: 162 microssegundos )
 
                                                   |----------------- Códigos de Huffman -----------------|
                                                             | sistema -> 000
@@ -117,18 +48,18 @@ política                       19      filosofia2.txt         {sentido(111), so
                                                             | sobre -> 1101
                                                             | segundo -> 1110
                                                             | pensamento -> 1111
-                                                            ( Tempo Huffman: 151 microssegundos )
+                                                            ( Tempo Huffman: 184 microssegundos )
 --------------------------------------------------------------------------------------------------
 
 utilização                      400             ti2.txt         {novas(199), hardware(200), assim(201), melhor(201), informações(200), segurança(268), ti(201), aumento(201), implantação(267), dados(201)}
 
                                                   |------------------ Pré-Ordem-Binária -----------------|
                                                       {novas (199), hardware (200), assim (201), informações (200), melhor (201), aumento (201), dados (201), segurança (268), ti (201), implantação (267)}
-                                                            ( Tempo Binária: 75 microssegundos )
+                                                            ( Tempo Binária: 72 microssegundos )
 
                                                   |------------------- Pré-Ordem-AVL --------------------|
                                                       {assim (201), hardware (200), novas (199), informações (200), ti (201), melhor (201), aumento (201), dados (201), segurança (268), implantação (267), }
-                                                            ( Tempo AVL: 78 microssegundos )
+                                                            ( Tempo AVL: 75 microssegundos )
 
                                                   |----------------- Códigos de Huffman -----------------|
                                                             | dados -> 000
@@ -141,18 +72,18 @@ utilização                      400             ti2.txt         {novas(199), h
                                                             | hardware -> 1101
                                                             | informações -> 1110
                                                             | assim -> 1111
-                                                            ( Tempo Huffman: 114 microssegundos )
+                                                            ( Tempo Huffman: 113 microssegundos )
 --------------------------------------------------------------------------------------------------
 
 utilização                      399              ti.txt         {melhor(200), aumento(200), novas(201), dados(201), sistema(200), segurança(268), ti(201), informações(201), implantação(266), desenvolvimento(200)}
 
                                                   |------------------ Pré-Ordem-Binária -----------------|
                                                       {melhor (200), aumento (200), desenvolvimento (200), novas (201), dados (201), sistema (200), informações (201), segurança (268), ti (201), implantação (266)}
-                                                            ( Tempo Binária: 138 microssegundos )
+                                                            ( Tempo Binária: 71 microssegundos )
 
                                                   |------------------- Pré-Ordem-AVL --------------------|
                                                       {dados (201), melhor (200), aumento (200), desenvolvimento (200), sistema (200), ti (201), novas (201), informações (201), segurança (268), implantação (266), }
-                                                            ( Tempo AVL: 140 microssegundos )
+                                                            ( Tempo AVL: 75 microssegundos )
 
                                                   |----------------- Códigos de Huffman -----------------|
                                                             | dados -> 000
@@ -165,5 +96,5 @@ utilização                      399              ti.txt         {melhor(200), 
                                                             | melhor -> 1101
                                                             | desenvolvimento -> 1110
                                                             | sistema -> 1111
-                                                            ( Tempo Huffman: 164 microssegundos )
+                                                            ( Tempo Huffman: 98 microssegundos )
 --------------------------------------------------------------------------------------------------
