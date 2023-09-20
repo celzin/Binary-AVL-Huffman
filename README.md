@@ -341,7 +341,7 @@ pensamento (115), sujeito (154), condição (133), mundo (144), priori (144)}
 <em>Trecho 2: Output resultante da Pré-Ordem para Árvore Binária.</em>
 </p>
 
-Montando a Àrvoré Binária "na mão" para conferir a coerência do output.
+Montando a estrutura de Àrvoré Binária "à mão" para conferir a coerência do output.
 
 <p align="center">
 <img src="imgs/arvoreb.png" width="400"/> 
@@ -361,7 +361,7 @@ pensamento (115), mundo (144), condição (133), sujeito (154), priori (144), }
 <em>Trecho 3: Output resultante da Pré-Ordem para Árvore AVL.</em>
 </p>
 
-Montando a Àrvoré AVL "na mão" com 3 inserções por vez para conferir a coerência do output.
+Montando estrutura de Àrvoré AVL "à mão" com 3 inserções por vez para conferir a coerência do output.
 
 <p align="center">
 <img src="imgs/insertavl1.png" width="400"/> 
@@ -379,7 +379,7 @@ Montando a Àrvoré AVL "na mão" com 3 inserções por vez para conferir a coer
 
 ### Codificação de Huffman
 
-Foi utilizado o site [Huffman Calculator](planetcalc.com/24811/) para conferência da codifição de huffman implementada.
+Utilizando o site [Huffman Calculator](planetcalc.com/24811/) para montar e gerar a estrutura de Huffman, a fim de conferir o funcionamento da codifição de Huffman implementada.
 
 <p align="center">
 <img src="imgs/huffman1.png" width="900"/> 
