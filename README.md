@@ -482,9 +482,9 @@ Assim, a escolha entre essas estruturas depende fortemente do problema específi
 
 <div align="justify">
 
-O programa foi projetado para processar um conjunto de arquivos de texto (.txt) contidos na pasta [`dataset`](). Então, para o correto funcionamento do programa:
+O programa foi projetado para processar um conjunto de arquivos de texto (.txt) contidos na pasta (`dataset`). Então, para o correto funcionamento do programa:
 
-- Certifique-se de incluir os arquivos preferencialmente no formato <code>textoN.txt</code> dentro da pasta [<code>dataset</code>]().
+- Certifique-se de incluir os arquivos preferencialmente no formato <code>textoN.txt</code> dentro da pasta (`dataset`).
 -  Ateste que os arquivos de texto estejam no formato correto (por exemplo, .txt) e que não contenham caracteres inválidos ou não reconhecidos.
 
 </div>
@@ -493,7 +493,7 @@ O programa foi projetado para processar um conjunto de arquivos de texto (.txt) 
 
 <div align="justify">
 
-É também essencial que o usuário inclua um arquivo denominado `input.data` (dentre a coleção de textos inserida na pasta `dataset`), contendo uma lista de _'palavras de pesquisa'_.
+É também essencial que o usuário inclua um arquivo denominado `input.data` (dentre a coleção de textos inserida na pasta (`dataset`), contendo uma lista de _'palavras de pesquisa'_.
 
  - Cada palavra nesse arquivo será considerada como termo de pesquisa para o sistema.
  
@@ -505,9 +505,9 @@ O programa foi projetado para processar um conjunto de arquivos de texto (.txt) 
 
 <div align="justify">
 
-O programa também faz uso de um arquivo [`stopwords.txt`](). Este arquivo contém palavras que são comumente usadas, mas que geralmente são ignoradas ao processar texto (por exemplo, "e", "o", "de" etc.).
+O programa também faz uso de um arquivo (`stopwords.txt`). Este arquivo contém palavras que são comumente usadas, mas que geralmente são ignoradas ao processar texto (por exemplo, "e", "o", "de" etc.).
 
-  - Certifique-se de que o arquivo `stopwords.txt` esteja localizado no diretório [`dataset`]().
+  - Certifique-se de que o arquivo `stopwords.txt` esteja localizado no diretório (`dataset`).
 
 </div>
 
@@ -529,7 +529,7 @@ const int TOP_K = 20;
 
 <div align="justify">
 
-Por fim, esse programa possui um arquivo [`Makefile`]() e um [`CMakeLists`](), os quais realizam todo o procedimento de compilação e execução. Para tanto, cabe ao usuário escolher o de sua preferência, porém se atente ao fato de que para cada um temos as seguintes diretrizes de execução:
+Por fim, esse programa possui um arquivo (`Makefile`) e um (`CMakeLists`), os quais realizam todo o procedimento de compilação e execução. Para tanto, cabe ao usuário escolher o de sua preferência, porém se atente ao fato de que para cada um temos as seguintes diretrizes de execução:
 
 </div>
 
