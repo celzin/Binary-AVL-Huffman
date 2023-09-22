@@ -524,8 +524,14 @@ const int TOP_K = 20;
 
 </div>
 
+## 5. Arquivo de saída (`output.data`)
+<div align="justify">
 
-## 5. Execução
+Ao final de sua execução, o programa gera um arquivo (`output.data`) dentro da pasta (`dataset`), o qual contém as estruturas propostas na apresentação do problema. Certifique-se de verificá-lo ao final da compilação.
+
+</div>
+
+## 6. Execução
 
 <div align="justify">
 
