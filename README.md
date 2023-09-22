@@ -310,7 +310,7 @@ A função `process_dataset_files` é a espinha dorsal do programa. Ela é respo
 <img src="imgs/teoria.png" width="600"/> 
 </p>
 <p align="center">
-<em>Imagem 1: . </em>
+<em>Imagem 1: Parte do `output.data` gerado a partir das entradas para análise. </em>
 </p>
 
 - A frente será mostrada a confirmação da saída resultante esperada dada a entrada fornecida. 
